@@ -8,7 +8,7 @@ const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
         <Toolbar>
-          <Typography>Hello World 3</Typography>
+          <Typography>Hello World Test</Typography>
         </Toolbar>
       </AppBar>
     </Box>
