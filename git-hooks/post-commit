@@ -1,8 +1,0 @@
-#!/bin/sh
-
-commitMessage=$(git log -1 --format=%f)
-
-echo "You just committed!"
-echo $commitMessage
-
-# npm run deploy -- -m "$commitMessage"

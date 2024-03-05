@@ -1,0 +1,8 @@
+#!/bin/sh
+
+commitMessage=$(git log -1 --format=%s)
+
+echo "You just pushed!"
+echo $commitMessage
+
+npm run deploy -- -m "(Automated) $commitMessage"
