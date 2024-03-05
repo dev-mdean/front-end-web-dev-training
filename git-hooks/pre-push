@@ -1,8 +1,7 @@
 #!/bin/sh
 
+echo -e 'Running Pre-Push Hook\n'
+
 commitMessage=$(git log -1 --format=%s)
 
-echo "You just pushed!"
-echo $commitMessage
-
-npm run deploy -- -m "(Automated) $commitMessage"
+npm run deploy -- -m '(Automated) $commitMessage'
