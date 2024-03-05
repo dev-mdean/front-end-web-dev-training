@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 function App() {
   return (
     <Box sx={{ backgroundColor: "grey.400", height: 1, width: 1 }}>
-      <Typography>Hello World</Typography>
+      <Typography>Test if this change is uploaded</Typography>
     </Box>
   );
 }
