@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/front-end-web-dev-training/static/css/main.f3141ba4.css",
+    "main.js": "/front-end-web-dev-training/static/js/main.043b6642.js",
+    "index.html": "/front-end-web-dev-training/index.html",
+    "main.f3141ba4.css.map": "/front-end-web-dev-training/static/css/main.f3141ba4.css.map",
+    "main.043b6642.js.map": "/front-end-web-dev-training/static/js/main.043b6642.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3141ba4.css",
+    "static/js/main.043b6642.js"
+  ]
+}
