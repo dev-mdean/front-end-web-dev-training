@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/front-end-web-dev-training/static/css/main.f855e6bc.css",
-    "main.js": "/front-end-web-dev-training/static/js/main.f7046c18.js",
-    "static/js/453.587ea2da.chunk.js": "/front-end-web-dev-training/static/js/453.587ea2da.chunk.js",
-    "static/media/logo.svg": "/front-end-web-dev-training/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/front-end-web-dev-training/static/css/main.f3141ba4.css",
+    "main.js": "/front-end-web-dev-training/static/js/main.30c7ed4f.js",
     "index.html": "/front-end-web-dev-training/index.html",
-    "main.f855e6bc.css.map": "/front-end-web-dev-training/static/css/main.f855e6bc.css.map",
-    "main.f7046c18.js.map": "/front-end-web-dev-training/static/js/main.f7046c18.js.map",
-    "453.587ea2da.chunk.js.map": "/front-end-web-dev-training/static/js/453.587ea2da.chunk.js.map"
+    "main.f3141ba4.css.map": "/front-end-web-dev-training/static/css/main.f3141ba4.css.map",
+    "main.30c7ed4f.js.map": "/front-end-web-dev-training/static/js/main.30c7ed4f.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.f7046c18.js"
+    "static/css/main.f3141ba4.css",
+    "static/js/main.30c7ed4f.js"
   ]
 }
