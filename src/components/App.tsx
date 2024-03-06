@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import Header from './Header'
+import Header from './layout/Header'
 import CssBaseline from '@mui/material/CssBaseline'
-import Body from './Body'
+import Body from './layout/Body'
 
 const darkTheme = createTheme({
   palette: {
