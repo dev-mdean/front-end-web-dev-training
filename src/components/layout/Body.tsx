@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { MuiMarkdown } from 'mui-markdown'
 import Paper from '@mui/material/Paper'
-import mdPath from '../../training-notes.md'
+import mdPath from '../../md-files/training/training-notes.md'
 
 const Body = () => {
   const [md, setMd] = useState('')
