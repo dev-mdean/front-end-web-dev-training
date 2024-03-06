@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography'
 
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position='static'>
         <Toolbar>
           <Typography>Hello World Test 5</Typography>
