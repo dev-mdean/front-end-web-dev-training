@@ -1,24 +1,12 @@
-import { useEffect, useState } from 'react'
-import { MuiMarkdown } from 'mui-markdown'
 import Paper from '@mui/material/Paper'
-import mdPath from '../../md-files/training/training-notes.md'
+import Page from './Page'
+import LeftPanel from './LeftPanel'
 
 const Body = () => {
-  const [md, setMd] = useState('')
-
-  useEffect(() => {
-    fetch(mdPath).then((response) => {
-      if (!response.ok) return
-
-      response.text().then((text) => {
-        setMd(text)
-      })
-    })
-  }, [])
-
   return (
-    <Paper>
-      <MuiMarkdown>{md}</MuiMarkdown>
+    <Paper elevation={0} sx={{ display: 'flex', height: 1 }}>
+      <LeftPanel />
+      <Page />
     </Paper>
   )
 }

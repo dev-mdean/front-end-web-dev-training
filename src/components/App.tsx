@@ -20,6 +20,7 @@ function App() {
           display: 'flex',
           flexDirection: 'column',
           height: 1,
+          position: 'fixed',
           width: 1,
         }}
       >
