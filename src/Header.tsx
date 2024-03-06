@@ -1,17 +1,14 @@
 import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 
 const Header = () => {
   return (
-    <Box>
-      <AppBar position='static'>
-        <Toolbar>
-          <Typography>Hello World Test 5</Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <AppBar position='fixed'>
+      <Toolbar sx={{ height: '64px' }}>
+        <Typography>{document.title}</Typography>
+      </Toolbar>
+    </AppBar>
   )
 }
 
