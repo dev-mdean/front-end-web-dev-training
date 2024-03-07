@@ -5,14 +5,22 @@ import Box from '@mui/material/Box'
 
 const Body = () => {
   return (
-    <Paper elevation={0} sx={{ display: 'flex', height: 1 }}>
-      <Box sx={{ backgroundColor: 'grey', width: '20rem' }}>
+    <Box sx={{ display: 'flex', height: 1 }}>
+      <Box>
         <LeftPanel />
       </Box>
-      <Paper elevation={0} sx={{ flexGrow: 1, overflowY: 'scroll', p: 2 }}>
+      <Paper
+        elevation={0}
+        sx={{
+          backgroundColor: 'transparent',
+          flexGrow: 1,
+          overflowY: 'scroll',
+          p: 2,
+        }}
+      >
         <Page />
       </Paper>
-    </Paper>
+    </Box>
   )
 }
 

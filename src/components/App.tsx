@@ -16,7 +16,7 @@ function App() {
       <CssBaseline />
       <Box
         sx={{
-          backgroundColor: 'background.default',
+          backgroundColor: 'grey.900',
           display: 'flex',
           flexDirection: 'column',
           height: '100vh',
