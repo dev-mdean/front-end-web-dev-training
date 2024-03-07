@@ -11,7 +11,7 @@
 
 - Create test project to ensure above is working:
 
-    `npx create-react-app my-app —template typescript`
+    `npx create-react-app my-app —-template typescript`
 
 <br/>
 
