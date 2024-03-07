@@ -4,6 +4,7 @@ import {
   PANEL_BORDER_STYLE,
   PANEL_BORDER_COLOR,
 } from './constants'
+import PageList from '../PageList/PageList'
 
 const LeftPanel = () => {
   return (
@@ -15,7 +16,9 @@ const LeftPanel = () => {
         height: 1,
         width: '20rem',
       }}
-    ></Box>
+    >
+      <PageList />
+    </Box>
   )
 }
 
