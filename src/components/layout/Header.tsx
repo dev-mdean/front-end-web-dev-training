@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 
 const Header = () => {
   return (
-    <AppBar position='fixed'>
+    <AppBar position='static'>
       <Toolbar sx={{ height: '64px' }}>
         <Typography>{document.title}</Typography>
       </Toolbar>

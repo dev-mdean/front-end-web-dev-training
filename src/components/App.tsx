@@ -19,13 +19,22 @@ function App() {
           backgroundColor: 'background.default',
           display: 'flex',
           flexDirection: 'column',
-          height: 1,
+          height: '100vh',
           position: 'fixed',
-          width: 1,
+          width: '100vw',
         }}
       >
-        <Header />
-        <Box sx={{ flexGrow: 1, mt: 8 }}>
+        <Box sx={{ flexBasis: 'auto', flexGrow: 0, flexShrink: 0 }}>
+          <Header />
+        </Box>
+        <Box
+          sx={{
+            flexBasis: 'auto',
+            flexGrow: 1,
+            flexShrink: 1,
+            overflow: 'hidden',
+          }}
+        >
           <Body />
         </Box>
       </Box>
