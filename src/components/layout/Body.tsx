@@ -1,9 +1,9 @@
-import Paper from '@mui/material/Paper'
 import Page from './Page'
 import LeftPanel from './LeftPanel'
 import Box from '@mui/material/Box'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useTheme } from '@mui/material/styles'
+import ScrollableBox from '../ScrollableBox'
 
 const Body = () => {
   const theme = useTheme()
@@ -22,17 +22,15 @@ const Body = () => {
           <LeftPanel />
         </Box>
       )}
-      <Paper
-        elevation={0}
+      <ScrollableBox
         sx={{
           backgroundColor: 'transparent',
           flexGrow: 1,
-          overflowY: 'scroll',
           p: 2,
         }}
       >
         <Page />
-      </Paper>
+      </ScrollableBox>
     </Box>
   )
 }
