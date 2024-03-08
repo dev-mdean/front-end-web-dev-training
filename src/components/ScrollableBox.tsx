@@ -26,18 +26,17 @@ const ScrollableBox = ({ children, sx }: ScrollableBoxProps) => {
         ...sx,
         overflowY: 'scroll',
         '::-webkit-scrollbar': {
-          transition: '2s',
-          width: hover ? '9px' : '0px',
+          width: '9px',
         },
         '::-webkit-scrollbar-track': {
-          background: '#FFFFFF10',
+          background: hover ? '#FFFFFF10' : 'transparent',
         },
         '::-webkit-scrollbar-thumb': {
-          background: '#FFFFFF80',
+          background: hover ? '#FFFFFF80' : 'transparent',
           borderRadius: '9px',
         },
         '::-webkit-scrollbar-thumb:hover': {
-          background: '#FFFFFF60',
+          background: hover ? '#FFFFFF60' : 'transparent',
         },
       }}
     >
