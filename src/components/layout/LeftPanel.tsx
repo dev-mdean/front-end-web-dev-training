@@ -14,7 +14,6 @@ const LeftPanel = () => {
         borderRightStyle: PANEL_BORDER_STYLE,
         borderRightWidth: PANEL_BORDER_WIDTH,
         height: 1,
-        width: '20rem',
       }}
     >
       <PageList />

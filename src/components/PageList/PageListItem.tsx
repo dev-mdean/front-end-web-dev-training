@@ -28,8 +28,13 @@ const PageListItem = ({ onClick, value }: PageListItemProps) => {
 
   return (
     <ListItem disablePadding>
-      <ListItemButton onClick={handleClick} selected={isSelected}>
-        <ListItemIcon>
+      <ListItemButton
+        disableGutters
+        onClick={handleClick}
+        selected={isSelected}
+        sx={{ px: 1 }}
+      >
+        <ListItemIcon sx={{ minWidth: 'unset', pr: 1 }}>
           {isSelected ? (
             <KeyboardArrowDownIcon fontSize='small' />
           ) : (
