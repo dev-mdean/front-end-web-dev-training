@@ -5,11 +5,15 @@ const ITEMS: string[] = ['Item 1', 'Item 2', 'Item 3']
 
 export const PAGE_LIST_WIDTH = '18rem'
 
-const PageList = () => {
+interface PageListProps {
+  onItemClicked?: (value: string) => any
+}
+
+const PageList = ({ onItemClicked }: PageListProps) => {
   return (
     <List disablePadding sx={{ width: PAGE_LIST_WIDTH }}>
       {ITEMS.map((item) => (
-        <PageListItem value={item} />
+        <PageListItem onClick={onItemClicked} value={item} />
       ))}
     </List>
   )

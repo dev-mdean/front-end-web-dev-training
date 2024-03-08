@@ -8,13 +8,13 @@ const NavigationMenu = () => {
   const dispatch = useAppDispatch()
   const showNavigationMenu = useAppSelector((s) => s.screen.showNavigationMenu)
 
-  const handleNavigationMenuClosed = useCallback(() => {
+  const closeNavigationMenu = useCallback(() => {
     dispatch(setShowNavigationMenu(false))
   }, [dispatch])
 
   return (
-    <Drawer onClose={handleNavigationMenuClosed} open={showNavigationMenu}>
-      <PageList />
+    <Drawer onClose={closeNavigationMenu} open={showNavigationMenu}>
+      <PageList onItemClicked={closeNavigationMenu} />
     </Drawer>
   )
 }

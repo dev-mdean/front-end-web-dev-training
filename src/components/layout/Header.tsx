@@ -1,6 +1,5 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 import {
   PANEL_BORDER_COLOR,
   PANEL_BORDER_STYLE,
@@ -61,7 +60,6 @@ const Header = () => {
             {selectedPage}
           </Link>
         </Breadcrumbs>
-        {/* <Typography>{document.title}</Typography> */}
       </Toolbar>
     </AppBar>
   )

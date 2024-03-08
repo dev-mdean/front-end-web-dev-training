@@ -9,7 +9,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { selectIsSelected, setSelectedPage } from '../../redux/pagesSlice'
 
 type PageListItemProps = {
-  onClick?: (event: React.SyntheticEvent, value: string) => any
+  onClick?: (value: string) => any
   value: string
 }
 
@@ -21,7 +21,7 @@ const PageListItem = ({ onClick, value }: PageListItemProps) => {
     (event: React.SyntheticEvent) => {
       event.stopPropagation()
       dispatch(setSelectedPage(value))
-      onClick?.(event, value)
+      onClick?.(value)
     },
     [dispatch, onClick, value]
   )
