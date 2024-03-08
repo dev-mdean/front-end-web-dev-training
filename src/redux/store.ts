@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { pagesReducer } from './pagesSlice'
+import { screenReducer } from './screenSlice'
 
 export const AppStore = configureStore({
   reducer: {
     pages: pagesReducer,
+    screen: screenReducer,
   },
 })
 

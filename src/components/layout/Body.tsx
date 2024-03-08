@@ -1,13 +1,11 @@
 import Page from './Page'
 import LeftPanel from './LeftPanel'
 import Box from '@mui/material/Box'
-import useMediaQuery from '@mui/material/useMediaQuery'
-import { useTheme } from '@mui/material/styles'
 import ScrollableBox from '../ScrollableBox'
+import { useAppSelector } from '../../redux/hooks'
 
 const Body = () => {
-  const theme = useTheme()
-  const showMobileLayout = useMediaQuery(theme.breakpoints.down('lg'))
+  const showMobileLayout = useAppSelector((s) => s.screen.showMobileLayout)
 
   return (
     <Box
