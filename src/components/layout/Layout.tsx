@@ -1,7 +1,8 @@
-import Box from '@mui/material/Box'
+import useAppMediaQueries from './useAppMediaQueries'
 import Header from './Header'
 import Body from './Body'
-import useAppMediaQueries from './useAppMediaQueries'
+import Box from '@mui/material/Box'
+import NavigationMenu from './NavigationMenu'
 
 const Layout = () => {
   useAppMediaQueries()
@@ -30,6 +31,7 @@ const Layout = () => {
       >
         <Body />
       </Box>
+      <NavigationMenu />
     </Box>
   )
 }
