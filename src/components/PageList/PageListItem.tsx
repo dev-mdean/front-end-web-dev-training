@@ -5,17 +5,17 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import { useCallback } from 'react'
-import { useAppDispatch } from '../../redux/hooks'
-import { setSelectedPage } from '../../redux/pagesSlice'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { selectIsSelected, setSelectedPage } from '../../redux/pagesSlice'
 
 type PageListItemProps = {
   onClick?: (event: React.SyntheticEvent, value: string) => any
-  selected: boolean
   value: string
 }
 
-const PageListItem = ({ onClick, selected, value }: PageListItemProps) => {
+const PageListItem = ({ onClick, value }: PageListItemProps) => {
   const dispatch = useAppDispatch()
+  const isSelected = useAppSelector(selectIsSelected(value))
 
   const handleClick = useCallback(
     (event: React.SyntheticEvent) => {
@@ -28,9 +28,9 @@ const PageListItem = ({ onClick, selected, value }: PageListItemProps) => {
 
   return (
     <ListItem disablePadding>
-      <ListItemButton onClick={handleClick} selected={selected}>
+      <ListItemButton onClick={handleClick} selected={isSelected}>
         <ListItemIcon>
-          {selected ? (
+          {isSelected ? (
             <KeyboardArrowDownIcon fontSize='small' />
           ) : (
             <KeyboardArrowRightIcon color='primary' fontSize='small' />

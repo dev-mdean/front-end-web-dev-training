@@ -1,11 +1,12 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { RootState } from './store'
 
 interface PagesState {
-  selectedPage?: string;
+  selectedPage?: string
 }
 
 const initialState: PagesState = {
-  selectedPage: undefined
+  selectedPage: undefined,
 }
 
 export const pagesSlice = createSlice({
@@ -13,11 +14,14 @@ export const pagesSlice = createSlice({
   initialState,
   reducers: {
     setSelectedPage: (state, action: PayloadAction<string | undefined>) => {
-      state.selectedPage = action.payload;
-    }
-  }
+      state.selectedPage = action.payload
+    },
+  },
 })
 
-export const {setSelectedPage} = pagesSlice.actions;
+export const { setSelectedPage } = pagesSlice.actions
 
-export const pagesReducer = pagesSlice.reducer;
+export const selectIsSelected = (page: string) => (state: RootState) =>
+  state.pages.selectedPage === page
+
+export const pagesReducer = pagesSlice.reducer
