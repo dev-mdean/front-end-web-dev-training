@@ -7,14 +7,17 @@ import {
   PANEL_BORDER_WIDTH,
 } from './constants'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { IconButton } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import React, { useCallback } from 'react'
 import { setShowNavigationMenu } from '../../redux/screenSlice'
+import IconButton from '@mui/material/IconButton'
+import Breadcrumbs from '@mui/material/Breadcrumbs'
+import Link from '@mui/material/Link'
 
 const Header = () => {
   const dispatch = useAppDispatch()
   const showMobileLayout = useAppSelector((s) => s.screen.showMobileLayout)
+  const selectedPage = useAppSelector((s) => s.pages.selectedPage)
 
   const handleMenuButtonClicked = useCallback(
     (event: React.SyntheticEvent) => {
@@ -45,7 +48,20 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
         )}
-        <Typography>{document.title}</Typography>
+        <Breadcrumbs>
+          <Link
+            color='inherit'
+            href='/'
+            underline='hover'
+            sx={{ color: 'white' }}
+          >
+            {document.title}
+          </Link>
+          <Link color='primary' href='/' underline='hover'>
+            {selectedPage}
+          </Link>
+        </Breadcrumbs>
+        {/* <Typography>{document.title}</Typography> */}
       </Toolbar>
     </AppBar>
   )
