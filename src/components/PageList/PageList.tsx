@@ -1,27 +1,16 @@
 import List from '@mui/material/List'
 import PageListItem from './PageListItem'
-import { useCallback, useState } from 'react'
+import { useAppSelector } from '../../redux/hooks'
 
 const ITEMS: string[] = ['Item 1', 'Item 2', 'Item 3']
 
 const PageList = () => {
-  const [selectedItem, setSelectedItem] = useState<string>()
-
-  const handleClick = useCallback(
-    (event: React.SyntheticEvent, value: string) => {
-      setSelectedItem(value)
-    },
-    []
-  )
+  const selectedPage = useAppSelector((s) => s.pages.selectedPage)
 
   return (
     <List disablePadding>
       {ITEMS.map((item) => (
-        <PageListItem
-          onClick={handleClick}
-          selected={item === selectedItem}
-          value={item}
-        />
+        <PageListItem selected={item === selectedPage} value={item} />
       ))}
     </List>
   )
