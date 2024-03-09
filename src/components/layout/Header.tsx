@@ -51,9 +51,11 @@ const Header = () => {
         )}
         <Breadcrumbs>
           <AppTitleButton />
-          <Link color='primary' href='/' underline='hover'>
-            {selectedPage}
-          </Link>
+          {selectedPage && (
+            <Link color='primary' href='/' underline='hover'>
+              {selectedPage}
+            </Link>
+          )}
         </Breadcrumbs>
       </Toolbar>
     </AppBar>
