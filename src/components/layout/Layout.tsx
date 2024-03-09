@@ -3,6 +3,7 @@ import Header from './Header'
 import Body from './Body'
 import Box from '@mui/material/Box'
 import NavigationMenu from './NavigationMenu'
+import { APP_BACKGROUND_COLOR } from './constants'
 
 const Layout = () => {
   useAppMediaQueries()
@@ -10,7 +11,7 @@ const Layout = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'grey.900',
+        backgroundColor: APP_BACKGROUND_COLOR,
         display: 'flex',
         flexDirection: 'column',
         height: '100vh',
