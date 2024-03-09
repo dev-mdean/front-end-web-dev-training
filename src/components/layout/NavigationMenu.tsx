@@ -3,7 +3,15 @@ import PageList from '../PageList/PageList'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { useCallback } from 'react'
 import { setShowNavigationMenu } from '../../redux/screenSlice'
-import { APP_BACKGROUND_COLOR } from './constants'
+import {
+  APP_BACKGROUND_COLOR,
+  APP_HEADER_HEIGHT,
+  PANEL_BORDER_COLOR,
+  PANEL_BORDER_STYLE,
+  PANEL_BORDER_WIDTH,
+} from './constants'
+import Box from '@mui/material/Box'
+import AppTitleButton from '../AppTitleButton'
 
 const NavigationMenu = () => {
   const dispatch = useAppDispatch()
@@ -23,6 +31,24 @@ const NavigationMenu = () => {
         },
       }}
     >
+      <Box
+        sx={{
+          borderBottomColor: PANEL_BORDER_COLOR,
+          borderBottomStyle: PANEL_BORDER_STYLE,
+          borderBottomWidth: PANEL_BORDER_WIDTH,
+        }}
+      >
+        <Box
+          sx={{
+            alignItems: 'center',
+            display: 'flex',
+            height: APP_HEADER_HEIGHT,
+            justifyContent: 'center',
+          }}
+        >
+          <AppTitleButton />
+        </Box>
+      </Box>
       <PageList onItemClicked={closeNavigationMenu} />
     </Drawer>
   )

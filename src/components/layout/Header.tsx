@@ -1,6 +1,7 @@
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import {
+  APP_HEADER_HEIGHT,
   PANEL_BORDER_COLOR,
   PANEL_BORDER_STYLE,
   PANEL_BORDER_WIDTH,
@@ -12,6 +13,7 @@ import { setShowNavigationMenu } from '../../redux/screenSlice'
 import IconButton from '@mui/material/IconButton'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import Link from '@mui/material/Link'
+import AppTitleButton from '../AppTitleButton'
 
 const Header = () => {
   const dispatch = useAppDispatch()
@@ -36,7 +38,7 @@ const Header = () => {
         borderBottomWidth: PANEL_BORDER_WIDTH,
       }}
     >
-      <Toolbar sx={{ height: '64px' }}>
+      <Toolbar sx={{ height: APP_HEADER_HEIGHT }}>
         {showMobileLayout && (
           <IconButton
             color='primary'
@@ -48,14 +50,7 @@ const Header = () => {
           </IconButton>
         )}
         <Breadcrumbs>
-          <Link
-            color='inherit'
-            href='/'
-            underline='hover'
-            sx={{ color: 'white' }}
-          >
-            {document.title}
-          </Link>
+          <AppTitleButton />
           <Link color='primary' href='/' underline='hover'>
             {selectedPage}
           </Link>
