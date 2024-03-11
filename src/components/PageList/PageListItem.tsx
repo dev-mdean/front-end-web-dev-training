@@ -7,6 +7,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import { useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { selectIsSelectedPage, setSelectedPage } from '../../redux/pagesSlice'
+import { useNavigate } from 'react-router-dom'
 
 type PageListItemProps = {
   onClick?: (value: string) => any
@@ -15,15 +16,17 @@ type PageListItemProps = {
 
 const PageListItem = ({ onClick, value }: PageListItemProps) => {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const isSelected = useAppSelector(selectIsSelectedPage(value))
 
   const handleClick = useCallback(
     (event: React.SyntheticEvent) => {
       event.stopPropagation()
       dispatch(setSelectedPage(value))
+      navigate(value)
       onClick?.(value)
     },
-    [dispatch, onClick, value]
+    [dispatch, navigate, onClick, value]
   )
 
   return (
