@@ -1,4 +1,4 @@
-#### React Training Notes
+# React Training Notes
 
 - Setup react environment
     - Node.js: https://nodejs.org/en/download

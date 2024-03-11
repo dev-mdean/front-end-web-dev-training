@@ -6,7 +6,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import { useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { selectIsSelected, setSelectedPage } from '../../redux/pagesSlice'
+import { selectIsSelectedPage, setSelectedPage } from '../../redux/pagesSlice'
 
 type PageListItemProps = {
   onClick?: (value: string) => any
@@ -15,7 +15,7 @@ type PageListItemProps = {
 
 const PageListItem = ({ onClick, value }: PageListItemProps) => {
   const dispatch = useAppDispatch()
-  const isSelected = useAppSelector(selectIsSelected(value))
+  const isSelected = useAppSelector(selectIsSelectedPage(value))
 
   const handleClick = useCallback(
     (event: React.SyntheticEvent) => {

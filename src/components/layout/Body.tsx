@@ -1,10 +1,15 @@
+import React from 'react'
 import LeftPanel from './LeftPanel'
 import Box from '@mui/material/Box'
 import ScrollableBox from '../ScrollableBox'
 import { useAppSelector } from '../../redux/hooks'
-import { Outlet } from 'react-router-dom'
 
-const Body = () => {
+export interface BodyProps {
+  children?: React.ReactNode
+  leftPanelChildren?: React.ReactNode
+}
+
+const Body = ({ children, leftPanelChildren }: BodyProps) => {
   const showMobileLayout = useAppSelector((s) => s.screen.showMobileLayout)
 
   return (
@@ -17,7 +22,7 @@ const Body = () => {
     >
       {!showMobileLayout && (
         <Box>
-          <LeftPanel />
+          <LeftPanel>{leftPanelChildren}</LeftPanel>
         </Box>
       )}
       <ScrollableBox
@@ -27,7 +32,7 @@ const Body = () => {
           p: 2,
         }}
       >
-        <Outlet />
+        {children}
       </ScrollableBox>
     </Box>
   )

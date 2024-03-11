@@ -5,6 +5,8 @@ import { AppStore } from '../redux/store'
 import Layout from './layout/Layout'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import MarkdownPage from './MarkdownPage'
+import InvalidRoutePage from './InvalidRoutePage'
+import PageList from './PageList/PageList'
 
 const darkTheme = createTheme({
   palette: {
@@ -19,13 +21,20 @@ function App() {
         <CssBaseline />
         <BrowserRouter basename='/front-end-web-dev-training'>
           <Routes>
-            <Route element={<Layout />}>
+            <Route element={<Layout leftPanelChildren={<PageList />} />}>
               <Route index />
               <Route element={<MarkdownPage />} path=':folder'>
                 <Route element={<MarkdownPage />} path=':filePath' />
               </Route>
             </Route>
-            <Route path='*' />
+            <Route
+              element={
+                <Layout>
+                  <InvalidRoutePage />
+                </Layout>
+              }
+              path='*'
+            />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

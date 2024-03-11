@@ -1,11 +1,14 @@
 import useAppMediaQueries from '../../hooks/useAppMediaQueries'
 import Header from './Header'
-import Body from './Body'
+import Body, { BodyProps } from './Body'
 import Box from '@mui/material/Box'
 import NavigationMenu from './NavigationMenu'
 import { APP_BACKGROUND_COLOR } from './constants'
+import { Outlet } from 'react-router-dom'
 
-const Layout = () => {
+interface Props extends BodyProps {}
+
+const Layout = ({ children, leftPanelChildren }: Props) => {
   useAppMediaQueries()
 
   return (
@@ -30,7 +33,10 @@ const Layout = () => {
           overflow: 'hidden',
         }}
       >
-        <Body />
+        <Body leftPanelChildren={leftPanelChildren}>
+          {children}
+          <Outlet />
+        </Body>
       </Box>
       <NavigationMenu />
     </Box>
