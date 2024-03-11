@@ -1,8 +1,8 @@
-import Page from './Page'
 import LeftPanel from './LeftPanel'
 import Box from '@mui/material/Box'
 import ScrollableBox from '../ScrollableBox'
 import { useAppSelector } from '../../redux/hooks'
+import { Outlet } from 'react-router-dom'
 
 const Body = () => {
   const showMobileLayout = useAppSelector((s) => s.screen.showMobileLayout)
@@ -27,7 +27,7 @@ const Body = () => {
           p: 2,
         }}
       >
-        <Page />
+        <Outlet />
       </ScrollableBox>
     </Box>
   )

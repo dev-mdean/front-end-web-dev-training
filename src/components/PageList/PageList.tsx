@@ -13,7 +13,7 @@ const PageList = ({ onItemClicked }: PageListProps) => {
   return (
     <List disablePadding sx={{ width: PAGE_LIST_WIDTH }}>
       {ITEMS.map((item) => (
-        <PageListItem onClick={onItemClicked} value={item} />
+        <PageListItem key={item} onClick={onItemClicked} value={item} />
       ))}
     </List>
   )

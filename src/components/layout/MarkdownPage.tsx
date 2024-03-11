@@ -4,7 +4,7 @@ import mdPath from '../../md-files/training/training-notes.md'
 import { Link as RouterLink } from 'react-router-dom'
 import { Link } from '@mui/material'
 
-const MdLink = ({
+const MarkdownLink = ({
   href,
   children,
 }: React.DetailedHTMLProps<
@@ -28,7 +28,7 @@ const MdLink = ({
   )
 }
 
-const Page = () => {
+const MdPage = () => {
   const [md, setMd] = useState('')
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Page = () => {
     <MuiMarkdown
       options={{
         overrides: {
-          a: MdLink,
+          a: MarkdownLink,
         },
       }}
     >
@@ -54,4 +54,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default MdPage
