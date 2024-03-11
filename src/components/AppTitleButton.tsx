@@ -1,8 +1,14 @@
+import { Link as RouterLink } from 'react-router-dom'
 import Link from '@mui/material/Link'
 
 const AppTitleButton = () => {
   return (
-    <Link color='inherit' href='/' underline='hover' sx={{ color: 'white' }}>
+    <Link
+      component={RouterLink}
+      to='/'
+      underline='hover'
+      sx={{ color: 'white' }}
+    >
       {document.title}
     </Link>
   )

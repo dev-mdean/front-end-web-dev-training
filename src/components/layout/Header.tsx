@@ -12,6 +12,7 @@ import React, { useCallback } from 'react'
 import { setShowNavigationMenu } from '../../redux/screenSlice'
 import IconButton from '@mui/material/IconButton'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
+import { Link as RouterLink } from 'react-router-dom'
 import Link from '@mui/material/Link'
 import AppTitleButton from '../AppTitleButton'
 
@@ -52,7 +53,12 @@ const Header = () => {
         <Breadcrumbs>
           <AppTitleButton />
           {selectedPage && (
-            <Link color='primary' href='/' underline='hover'>
+            <Link
+              color='primary'
+              component={RouterLink}
+              to={`/${selectedPage}`}
+              underline='hover'
+            >
               {selectedPage}
             </Link>
           )}

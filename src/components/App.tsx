@@ -3,6 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { Provider } from 'react-redux'
 import { AppStore } from '../redux/store'
 import Layout from './layout/Layout'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 const darkTheme = createTheme({
   palette: {
@@ -15,7 +16,14 @@ function App() {
     <Provider store={AppStore}>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <Layout />
+        <BrowserRouter basename='/front-end-web-dev-training'>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route index />
+              <Route path='/:filePath' />
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   )
