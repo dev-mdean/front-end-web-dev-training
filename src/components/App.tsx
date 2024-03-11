@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import MarkdownPage from './MarkdownPage'
 import InvalidRoutePage from './InvalidRoutePage'
 import PageList from './PageList/PageList'
+import HomePage from './HomePage'
 
 const darkTheme = createTheme({
   palette: {
@@ -22,7 +23,7 @@ function App() {
         <BrowserRouter basename='/front-end-web-dev-training'>
           <Routes>
             <Route element={<Layout leftPanelChildren={<PageList />} />}>
-              <Route index />
+              <Route element={<HomePage />} index />
               <Route element={<MarkdownPage />} path=':folder'>
                 <Route element={<MarkdownPage />} path=':filePath' />
               </Route>
