@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { AppStore } from '../redux/store'
 import Layout from './layout/Layout'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import MarkdownPage from './layout/MarkdownPage'
+import MarkdownPage from './MarkdownPage'
 
 const darkTheme = createTheme({
   palette: {
@@ -25,6 +25,7 @@ function App() {
                 <Route element={<MarkdownPage />} path=':filePath' />
               </Route>
             </Route>
+            <Route path='*' />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

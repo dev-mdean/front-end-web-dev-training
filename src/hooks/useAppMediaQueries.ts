@@ -1,8 +1,8 @@
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useEffect } from 'react'
-import { useAppDispatch } from '../../redux/hooks'
-import { setShowMobileLayout } from '../../redux/screenSlice'
+import { useAppDispatch } from '../redux/hooks'
+import { setShowMobileLayout } from '../redux/screenSlice'
 
 const useAppMediaQueries = () => {
   const dispatch = useAppDispatch()

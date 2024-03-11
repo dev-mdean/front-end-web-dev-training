@@ -1,4 +1,4 @@
-import useAppMediaQueries from './useAppMediaQueries'
+import useAppMediaQueries from '../../hooks/useAppMediaQueries'
 import Header from './Header'
 import Body from './Body'
 import Box from '@mui/material/Box'
