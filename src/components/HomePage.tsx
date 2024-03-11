@@ -53,6 +53,19 @@ const HomePage = () => {
         We are excited to have you on board and look forward to seeing your
         growth and success as a front-end developer!
       </Typography>
+      <Box alignItems='center' display='flex' flexDirection='column' mt={3}>
+        <Typography sx={{ color: 'goldenrod' }} variant='h3'>
+          Happy Coding!
+        </Typography>
+        <Box mt={5}>
+          <img
+            alt='guitar'
+            height='200px'
+            width='auto'
+            src='https://static-00.iconduck.com/assets.00/thumbs-up-emoji-emoji-457x512-bvpfjk1g.png'
+          />
+        </Box>
+      </Box>
     </Box>
   )
 }
