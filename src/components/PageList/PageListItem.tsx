@@ -8,7 +8,7 @@ import { useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { selectIsSelectedPage, setSelectedPage } from '../../redux/pagesSlice'
 import { useNavigate } from 'react-router-dom'
-import { pathGenerators } from '../routes'
+import { generatePathTo } from '../routes'
 
 type PageListItemProps = {
   onClick?: (value: string) => any
@@ -24,7 +24,7 @@ const PageListItem = ({ onClick, value }: PageListItemProps) => {
     (event: React.SyntheticEvent) => {
       event.stopPropagation()
       dispatch(setSelectedPage(value))
-      navigate(pathGenerators.docsFile('test', value))
+      navigate(generatePathTo.docsFile('test', value))
       onClick?.(value)
     },
     [dispatch, navigate, onClick, value]

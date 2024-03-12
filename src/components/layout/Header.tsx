@@ -15,6 +15,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs'
 import { Link as RouterLink } from 'react-router-dom'
 import Link from '@mui/material/Link'
 import AppTitleButton from '../AppTitleButton'
+import { generatePathTo } from '../routes'
 
 const Header = () => {
   const dispatch = useAppDispatch()
@@ -56,7 +57,7 @@ const Header = () => {
             <Link
               color='primary'
               component={RouterLink}
-              to={`/${selectedPage}`}
+              to={generatePathTo.docsFile('test', selectedPage)}
               underline='hover'
             >
               {selectedPage}

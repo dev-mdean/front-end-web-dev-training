@@ -15,7 +15,7 @@ export const routes = {
   },
 }
 
-export const pathGenerators = {
+export const generatePathTo = {
   docsFile: (folderName: string, fileName: string) =>
     generatePath(`${routes.docs.root}/${routes.docs.subRoutes.file}`, {
       [dynamicSegments.fileName]: fileName,
