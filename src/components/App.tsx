@@ -8,6 +8,7 @@ import MarkdownPage from './MarkdownPage'
 import InvalidRoutePage from './InvalidRoutePage'
 import PageList from './PageList/PageList'
 import HomePage from './HomePage'
+import { routes } from './routes'
 
 const darkTheme = createTheme({
   palette: {
@@ -24,8 +25,10 @@ function App() {
           <Routes>
             <Route element={<Layout leftPanelChildren={<PageList />} />}>
               <Route element={<HomePage />} index />
-              <Route element={<MarkdownPage />} path=':folder'>
-                <Route element={<MarkdownPage />} path=':filePath' />
+              <Route element={<MarkdownPage />} path={routes.docs.root}>
+                {Object.values(routes.docs.subRoutes).map((subroute) => (
+                  <Route element={<MarkdownPage />} path={subroute} />
+                ))}
               </Route>
             </Route>
             <Route
