@@ -59,7 +59,7 @@ const HomePage = () => {
         </Typography>
         <Box mt={5}>
           <img
-            alt='guitar'
+            alt='thumbs-up'
             height='200px'
             width='auto'
             src='https://static-00.iconduck.com/assets.00/thumbs-up-emoji-emoji-457x512-bvpfjk1g.png'
