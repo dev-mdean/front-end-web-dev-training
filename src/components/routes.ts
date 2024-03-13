@@ -7,7 +7,7 @@ export const dynamicSegments = {
 
 export const routes = {
   docs: {
-    root: 'docs',
+    root: 'pages',
     subRoutes: {
       file: `:${dynamicSegments.folderName}/:${dynamicSegments.fileName}`,
       folder: `:${dynamicSegments.folderName}`,

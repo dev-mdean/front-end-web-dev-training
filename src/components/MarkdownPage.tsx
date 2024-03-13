@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { MuiMarkdown } from 'mui-markdown'
-import mdPath from '../md-files/training/training-notes.md'
+import mdPath from '../pages/training/training-notes.md'
 import { Link as RouterLink } from 'react-router-dom'
 import { Link } from '@mui/material'
 

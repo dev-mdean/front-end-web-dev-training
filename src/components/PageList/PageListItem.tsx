@@ -8,26 +8,26 @@ import { useCallback } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { selectIsSelectedPage, setSelectedPage } from '../../redux/pagesSlice'
 import { useNavigate } from 'react-router-dom'
-import { generatePathTo } from '../routes'
+import { Page } from '../../pages'
 
 type PageListItemProps = {
-  onClick?: (value: string) => any
-  value: string
+  onClick?: (page: Page) => any
+  page: Page
 }
 
-const PageListItem = ({ onClick, value }: PageListItemProps) => {
+const PageListItem = ({ onClick, page }: PageListItemProps) => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const isSelected = useAppSelector(selectIsSelectedPage(value))
+  const isSelected = useAppSelector(selectIsSelectedPage(page))
 
   const handleClick = useCallback(
     (event: React.SyntheticEvent) => {
       event.stopPropagation()
-      dispatch(setSelectedPage(value))
-      navigate(generatePathTo.docsFile('test', value))
-      onClick?.(value)
+      dispatch(setSelectedPage(page))
+      navigate(page.path)
+      onClick?.(page)
     },
-    [dispatch, navigate, onClick, value]
+    [dispatch, navigate, onClick, page]
   )
 
   return (
@@ -45,7 +45,7 @@ const PageListItem = ({ onClick, value }: PageListItemProps) => {
             <KeyboardArrowRightIcon color='primary' fontSize='small' />
           )}
         </ListItemIcon>
-        <ListItemText primary={value} />
+        <ListItemText primary={page.title} />
       </ListItemButton>
     </ListItem>
   )

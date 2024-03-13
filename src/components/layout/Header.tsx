@@ -57,10 +57,10 @@ const Header = () => {
             <Link
               color='primary'
               component={RouterLink}
-              to={generatePathTo.docsFile('test', selectedPage)}
+              to={selectedPage.path}
               underline='hover'
             >
-              {selectedPage}
+              {selectedPage.title}
             </Link>
           )}
         </Breadcrumbs>

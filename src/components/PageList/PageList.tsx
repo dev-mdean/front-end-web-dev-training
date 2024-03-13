@@ -1,19 +1,18 @@
 import List from '@mui/material/List'
 import PageListItem from './PageListItem'
-
-const ITEMS: string[] = ['Item 1', 'Item 2', 'Item 3']
+import { Page, pages } from '../../pages'
 
 export const PAGE_LIST_WIDTH = '18rem'
 
 interface PageListProps {
-  onItemClicked?: (value: string) => any
+  onItemClicked?: (value: Page) => any
 }
 
 const PageList = ({ onItemClicked }: PageListProps) => {
   return (
     <List disablePadding sx={{ width: PAGE_LIST_WIDTH }}>
-      {ITEMS.map((item) => (
-        <PageListItem key={item} onClick={onItemClicked} value={item} />
+      {pages.map((page) => (
+        <PageListItem key={page.path} onClick={onItemClicked} page={page} />
       ))}
     </List>
   )
