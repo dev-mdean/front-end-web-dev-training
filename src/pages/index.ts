@@ -2,6 +2,7 @@ import { generatePathTo } from '../components/routes'
 
 export interface Page {
   path: string
+  subPages?: Page[]
   title: string
 }
 
@@ -11,7 +12,13 @@ export const pages: Page[] = [
     title: 'Home',
   },
   {
-    path: generatePathTo.docsFile('training', 'training-notes.md'),
-    title: 'Training Notes',
+    path: '/',
+    subPages: [
+      {
+        path: generatePathTo.docsFile('training', 'training-notes.md'),
+        title: 'Training Notes',
+      },
+    ],
+    title: 'Training',
   },
 ]

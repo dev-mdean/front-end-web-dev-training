@@ -23,6 +23,9 @@ export const pagesSlice = createSlice({
 export const { setSelectedPage } = pagesSlice.actions
 
 export const selectIsSelectedPage = (page: Page) => (state: RootState) =>
-  state.pages.selectedPage === page
+  state.pages.selectedPage === page || selectIsSubPageSelected(page)(state)
+
+export const selectIsSubPageSelected = (page: Page) => (state: RootState) =>
+  !!page.subPages?.some((subpage) => state.pages.selectedPage === subpage)
 
 export const pagesReducer = pagesSlice.reducer

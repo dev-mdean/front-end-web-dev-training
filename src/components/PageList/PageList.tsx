@@ -11,8 +11,8 @@ interface PageListProps {
 const PageList = ({ onItemClicked }: PageListProps) => {
   return (
     <List disablePadding sx={{ width: PAGE_LIST_WIDTH }}>
-      {pages.map((page) => (
-        <PageListItem key={page.path} onClick={onItemClicked} page={page} />
+      {pages.map((page, index) => (
+        <PageListItem key={index} onClick={onItemClicked} page={page} />
       ))}
     </List>
   )
