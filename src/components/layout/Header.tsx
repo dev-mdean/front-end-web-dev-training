@@ -15,7 +15,6 @@ import Breadcrumbs from '@mui/material/Breadcrumbs'
 import { Link as RouterLink } from 'react-router-dom'
 import Link from '@mui/material/Link'
 import AppTitleButton from '../AppTitleButton'
-import { generatePathTo } from '../routes'
 
 const Header = () => {
   const dispatch = useAppDispatch()
