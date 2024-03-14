@@ -4,10 +4,9 @@ import { Provider } from 'react-redux'
 import { AppStore } from '../redux/store'
 import Layout from './layout/Layout'
 import { HashRouter, Route, Routes } from 'react-router-dom'
-import MarkdownPage from './MarkdownPage'
 import InvalidRoutePage from './InvalidRoutePage'
 import PageList from './PageList/PageList'
-import HomePage from './HomePage'
+import HomePageRedirector from './HomePageRedirector'
 import { routes } from './routes'
 
 const darkTheme = createTheme({
@@ -24,16 +23,22 @@ function App() {
         <HashRouter basename=''>
           <Routes>
             <Route element={<Layout leftPanelChildren={<PageList />} />}>
-              <Route element={<HomePage />} index />
-              <Route element={<MarkdownPage />} path={routes.docs.root}>
-                {Object.values(routes.docs.subRoutes).map((subroute) => (
-                  <Route
-                    element={<MarkdownPage />}
-                    key={subroute}
-                    path={subroute}
-                  />
-                ))}
-              </Route>
+              <Route element={<HomePageRedirector />} index />
+              {routes.map((route) => {
+                return (
+                  <Route path={route.path}>
+                    <Route element={route.component} index />
+                    {route.subRoutes &&
+                      Object.values(route.subRoutes).map((subroute) => (
+                        <Route
+                          element={subroute.component ?? route.component}
+                          key={subroute.path}
+                          path={subroute.path}
+                        />
+                      ))}
+                  </Route>
+                )
+              })}
             </Route>
             <Route
               element={
