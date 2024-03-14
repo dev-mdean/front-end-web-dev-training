@@ -2,6 +2,8 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { Link as RouterLink } from 'react-router-dom'
+import { generatePathTo } from './routes'
+import { pagePaths } from '../pages'
 
 const InvalidRoutePage = () => {
   return (
@@ -18,7 +20,11 @@ const InvalidRoutePage = () => {
         The address might be misspelled or the page may have moved.
       </Typography>
       <Typography>Error code: 404</Typography>
-      <Button component={RouterLink} to='/' variant='contained'>
+      <Button
+        component={RouterLink}
+        to={generatePathTo.page(pagePaths.home)}
+        variant='contained'
+      >
         Go Home
       </Button>
     </Box>

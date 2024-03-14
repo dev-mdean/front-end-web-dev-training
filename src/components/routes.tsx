@@ -14,14 +14,14 @@ interface Route {
 }
 
 export const routesDictionary = {
-  home: {
-    component: <HomePage />,
-    path: 'home',
-  } as Route,
   pages: {
     component: <MarkdownPage />,
     path: 'pages',
     subRoutes: {
+      home: {
+        component: <HomePage />,
+        path: 'home',
+      } as Route,
       folder: {
         component: <HomePage />,
         path: `:${dynamicSegments.folderName}`,

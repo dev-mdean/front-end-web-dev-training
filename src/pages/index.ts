@@ -14,7 +14,7 @@ export const pagePaths = {
 
 export const pages: Page[] = [
   {
-    path: pagePaths.home,
+    path: generatePathTo.page(pagePaths.home),
     title: 'Home',
   },
   {
@@ -29,16 +29,34 @@ export const pages: Page[] = [
   },
 ]
 
-export const findPage = (folderName?: string, fileName?: string) => {
-  const folderPage = pages.find(
-    (page) => page.path === folderName || page.path === fileName
-  )
+export const findAppPageByName = (folderName?: string, fileName?: string) =>
+  findPageByName(pages, folderName, fileName)
+export const findPageByName = (
+  pages: Page[],
+  folderName?: string,
+  fileName?: string
+) => {
+  console.log('stuff %s --- %s', folderName, fileName)
+  let folderPage: Page | undefined
+
+  if (folderName) {
+    folderPage = pages.find(
+      (page) => page.path === generatePathTo.page(folderName)
+    )
+  }
+
+  console.log('folderPage', folderPage)
 
   if (!fileName) return folderPage
 
-  const filePage = folderPage?.subPages?.find(
-    (subPage) => subPage.path === generatePathTo.page(fileName, folderName)
-  )
+  let filePage: Page | undefined
 
-  return filePage
+  if (folderName && fileName) {
+    filePage = folderPage?.subPages?.find(
+      (subPage) => subPage.path === generatePathTo.page(folderName, fileName)
+    )
+  }
+
+  console.log('filePage', filePage)
+  return filePage ?? folderPage
 }

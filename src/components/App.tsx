@@ -26,7 +26,7 @@ function App() {
               <Route element={<HomePageRedirector />} index />
               {routes.map((route) => {
                 return (
-                  <Route path={route.path}>
+                  <Route key={route.path} path={route.path}>
                     <Route element={route.component} index />
                     {route.subRoutes &&
                       Object.values(route.subRoutes).map((subroute) => (

@@ -5,11 +5,13 @@ import Box from '@mui/material/Box'
 import NavigationMenu from './NavigationMenu'
 import { APP_BACKGROUND_COLOR } from './constants'
 import { Outlet } from 'react-router-dom'
+import useAppUrlParams from '../../hooks/useAppUrlParmas'
 
 interface Props extends BodyProps {}
 
 const Layout = ({ children, leftPanelChildren }: Props) => {
   useAppMediaQueries()
+  useAppUrlParams()
 
   return (
     <Box
