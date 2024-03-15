@@ -6,11 +6,10 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 import CircleIcon from '@mui/icons-material/Circle'
 import { useCallback, useMemo } from 'react'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
+import { useAppSelector } from '../../redux/hooks'
 import {
   selectIsSelectedPage,
   selectIsSubPageSelected,
-  setSelectedPage,
 } from '../../redux/pagesSlice'
 import { useNavigate } from 'react-router-dom'
 import { Page } from '../../pages'
@@ -25,7 +24,6 @@ type PageListItemProps = {
 }
 
 const PageListItem = ({ level = 1, onClick, page }: PageListItemProps) => {
-  const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const isSelected = useAppSelector(selectIsSelectedPage(page))
   const isSubPageSelected = useAppSelector(selectIsSubPageSelected(page))
@@ -33,11 +31,10 @@ const PageListItem = ({ level = 1, onClick, page }: PageListItemProps) => {
   const handleClick = useCallback(
     (event: React.SyntheticEvent) => {
       event.stopPropagation()
-      dispatch(setSelectedPage(page))
       navigate(page.path)
       onClick?.(page)
     },
-    [dispatch, navigate, onClick, page]
+    [navigate, onClick, page]
   )
 
   const icon = useMemo(() => {

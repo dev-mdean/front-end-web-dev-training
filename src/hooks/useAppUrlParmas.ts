@@ -7,8 +7,8 @@ import { findAppPageByName } from '../pages'
 
 const useAppUrlParams = () => {
   const {
-    [dynamicSegments.fileName]: fileName,
-    [dynamicSegments.folderName]: folderName,
+    [dynamicSegments.pageFileName]: fileName,
+    [dynamicSegments.pageFolderName]: folderName,
   } = useParams()
   const dispatch = useAppDispatch()
 

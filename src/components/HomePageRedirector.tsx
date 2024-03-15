@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { pagePaths } from '../pages'
+import { routeStrings } from './routes'
 
 const HomePageRedirector = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    navigate(pagePaths.home)
+    navigate(routeStrings.home)
   }, [navigate])
 
   return null

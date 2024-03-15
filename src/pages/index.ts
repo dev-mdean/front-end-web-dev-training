@@ -1,4 +1,4 @@
-import { generatePathTo } from '../components/routes'
+import { generatePathTo, routeStrings } from '../components/routes'
 
 export interface Page {
   path: string
@@ -6,22 +6,16 @@ export interface Page {
   title: string
 }
 
-export const pagePaths = {
-  home: 'home',
-  pages: 'pages',
-  training: 'training',
-}
-
 export const pages: Page[] = [
   {
-    path: generatePathTo.page(pagePaths.home),
+    path: generatePathTo.page(routeStrings.home),
     title: 'Home',
   },
   {
-    path: generatePathTo.page(pagePaths.training),
+    path: generatePathTo.page(routeStrings.training),
     subPages: [
       {
-        path: generatePathTo.page(pagePaths.training, 'training-notes.md'),
+        path: generatePathTo.page(routeStrings.training, 'training-notes.md'),
         title: 'Training Notes',
       },
     ],

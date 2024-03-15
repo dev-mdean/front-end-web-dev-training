@@ -1,13 +1,12 @@
 import { Link as RouterLink } from 'react-router-dom'
 import Link from '@mui/material/Link'
-import { pagePaths } from '../pages'
-import { generatePathTo } from './routes'
+import { generatePathTo, routeStrings } from './routes'
 
 const AppTitleButton = () => {
   return (
     <Link
       component={RouterLink}
-      to={generatePathTo.page(pagePaths.home)}
+      to={generatePathTo.page(routeStrings.home)}
       underline='hover'
       sx={{ color: 'white' }}
     >

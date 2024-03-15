@@ -3,8 +3,8 @@ import MarkdownPage from './MarkdownPage'
 import HomePage from './HomePage'
 
 export const dynamicSegments = {
-  fileName: 'fileName',
-  folderName: 'folderName',
+  pageFileName: 'fileName',
+  pageFolderName: 'folderName',
 }
 
 interface Route {
@@ -13,21 +13,25 @@ interface Route {
   subRoutes?: { [key: string]: Route }
 }
 
+export const routeStrings = {
+  home: 'home',
+  pages: 'pages',
+  training: 'training',
+  folder: 'folder',
+  file: 'file',
+}
+
 export const routesDictionary = {
   pages: {
     component: <MarkdownPage />,
-    path: 'pages',
+    path: routeStrings.pages,
     subRoutes: {
-      home: {
+      [routeStrings.folder]: {
         component: <HomePage />,
-        path: 'home',
+        path: `:${dynamicSegments.pageFolderName}`,
       } as Route,
-      folder: {
-        component: <HomePage />,
-        path: `:${dynamicSegments.folderName}`,
-      } as Route,
-      file: {
-        path: `:${dynamicSegments.folderName}/:${dynamicSegments.fileName}`,
+      [routeStrings.file]: {
+        path: `:${dynamicSegments.pageFolderName}/page/:${dynamicSegments.pageFileName}`,
       } as Route,
     },
   } as Route,
@@ -40,21 +44,21 @@ export const generatePathTo = {
     if (!fileName) {
       return generatePath(
         `${routesDictionary.pages.path}/${
-          routesDictionary.pages.subRoutes!.folder.path
+          routesDictionary.pages.subRoutes![routeStrings.folder].path
         }`,
         {
-          [dynamicSegments.folderName]: folderName,
+          [dynamicSegments.pageFolderName]: folderName,
         }
       )
     }
 
     return generatePath(
       `${routesDictionary.pages.path}/${
-        routesDictionary.pages.subRoutes!.file.path
+        routesDictionary.pages.subRoutes![routeStrings.file].path
       }`,
       {
-        [dynamicSegments.fileName]: fileName,
-        [dynamicSegments.folderName]: folderName,
+        [dynamicSegments.pageFileName]: fileName,
+        [dynamicSegments.pageFolderName]: folderName,
       }
     )
   },

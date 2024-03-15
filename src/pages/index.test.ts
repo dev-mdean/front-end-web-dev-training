@@ -1,13 +1,13 @@
-import { Page, findPageByName, pagePaths } from '.'
-import { generatePathTo } from '../components/routes'
+import { Page, findPageByName } from '.'
+import { generatePathTo, routeStrings } from '../components/routes'
 
-const testPage1FolderPath = pagePaths.home
+const testPage1FolderPath = routeStrings.home
 const testPage1: Page = {
   path: generatePathTo.page(testPage1FolderPath),
   title: 'Test 1',
 }
 
-const testSubPageFolderName = pagePaths.training
+const testSubPageFolderName = routeStrings.training
 const testSubPage1FileName = 'sub-page-1.md'
 const testSubPage1: Page = {
   path: generatePathTo.page(testSubPageFolderName, testSubPage1FileName),
