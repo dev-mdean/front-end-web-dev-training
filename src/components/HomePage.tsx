@@ -7,18 +7,18 @@ const IMAGE_SIZE = '72px'
 
 const HomePage = () => {
   return (
-    <ScrollableBox
-      sx={{
-        backgroundColor: 'transparent',
-        flexGrow: 1,
-        p: 2,
-      }}
-    >
-      <Box display='flex' flexDirection='column' rowGap={2}>
-        <PageHeader
-          sx={{ backgroundColor: 'primary.dark', mt: -2, mx: -2, p: 2 }}
-          title='Welcome!'
-        />
+    <Box display='flex' flexDirection='column'>
+      <PageHeader
+        sx={{ backgroundColor: 'primary.dark', p: 2 }}
+        title='Welcome!'
+      />
+      <ScrollableBox
+        sx={{
+          backgroundColor: 'transparent',
+          flexGrow: 1,
+          p: 2,
+        }}
+      >
         <Typography fontSize='1.25rem'>
           Front-end development is a crucial aspect of creating engaging and
           user-friendly websites. The content here is designed to equip you with
@@ -75,8 +75,8 @@ const HomePage = () => {
             />
           </Box>
         </Box>
-      </Box>
-    </ScrollableBox>
+      </ScrollableBox>
+    </Box>
   )
 }
 
