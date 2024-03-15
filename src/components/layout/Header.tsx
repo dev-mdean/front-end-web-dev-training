@@ -8,18 +8,23 @@ import {
 } from './constants'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import MenuIcon from '@mui/icons-material/Menu'
-import React, { useCallback } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { setShowNavigationMenu } from '../../redux/screenSlice'
 import IconButton from '@mui/material/IconButton'
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import { Link as RouterLink } from 'react-router-dom'
 import Link from '@mui/material/Link'
 import AppTitleButton from '../AppTitleButton'
+import { pageDictionary } from '../../pages'
 
 const Header = () => {
   const dispatch = useAppDispatch()
   const showMobileLayout = useAppSelector((s) => s.screen.showMobileLayout)
   const selectedPage = useAppSelector((s) => s.pages.selectedPage)
+  const selectedPageIsHome = useMemo(
+    () => selectedPage === pageDictionary.home,
+    [selectedPage]
+  )
 
   const handleMenuButtonClicked = useCallback(
     (event: React.SyntheticEvent) => {
@@ -52,7 +57,7 @@ const Header = () => {
         )}
         <Breadcrumbs>
           <AppTitleButton />
-          {selectedPage && (
+          {selectedPage && !selectedPageIsHome && (
             <Link
               color='primary'
               component={RouterLink}

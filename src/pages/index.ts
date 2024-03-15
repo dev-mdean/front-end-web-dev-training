@@ -6,12 +6,14 @@ export interface Page {
   title: string
 }
 
-export const pages: Page[] = [
-  {
+export type PageString = keyof typeof routeStrings
+
+export const pageDictionary: { [key in PageString]?: Page } = {
+  home: {
     path: generatePathTo.page(routeStrings.home),
     title: 'Home',
   },
-  {
+  training: {
     path: generatePathTo.page(routeStrings.training),
     subPages: [
       {
@@ -21,7 +23,9 @@ export const pages: Page[] = [
     ],
     title: 'Training',
   },
-]
+}
+
+export const pages = Object.values(pageDictionary)
 
 export const findAppPageByName = (folderName?: string, fileName?: string) =>
   findPageByName(pages, folderName, fileName)
