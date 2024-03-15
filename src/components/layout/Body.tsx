@@ -1,7 +1,6 @@
 import React from 'react'
 import LeftPanel from './LeftPanel'
 import Box from '@mui/material/Box'
-import ScrollableBox from '../ScrollableBox'
 import { useAppSelector } from '../../redux/hooks'
 
 export interface BodyProps {
@@ -25,15 +24,8 @@ const Body = ({ children, leftPanelChildren }: BodyProps) => {
           <LeftPanel>{leftPanelChildren}</LeftPanel>
         </Box>
       )}
-      <ScrollableBox
-        sx={{
-          backgroundColor: 'transparent',
-          flexGrow: 1,
-          p: 2,
-        }}
-      >
-        {children}
-      </ScrollableBox>
+
+      {children}
     </Box>
   )
 }

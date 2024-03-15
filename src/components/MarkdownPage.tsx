@@ -1,8 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { MuiMarkdown } from 'mui-markdown'
 import { Link as RouterLink } from 'react-router-dom'
-import { Link } from '@mui/material'
 import { useAppSelector } from '../redux/hooks'
+import ScrollableBox from './ScrollableBox'
+import PageHeader from './PageHeader'
+import Link from '@mui/material/Link'
+import Box from '@mui/material/Box'
 
 const MarkdownLink = ({
   href,
@@ -45,15 +48,29 @@ const MdPage = () => {
   }, [selectedPage])
 
   return (
-    <MuiMarkdown
-      options={{
-        overrides: {
-          a: MarkdownLink,
-        },
-      }}
-    >
-      {md}
-    </MuiMarkdown>
+    <Box display='flex' flexDirection='column' width={1}>
+      <PageHeader
+        title={selectedPage?.title}
+        sx={{ backgroundColor: 'primary.dark', p: 2 }}
+      />
+      <ScrollableBox
+        sx={{
+          backgroundColor: 'transparent',
+          flexGrow: 1,
+          p: 2,
+        }}
+      >
+        <MuiMarkdown
+          options={{
+            overrides: {
+              a: MarkdownLink,
+            },
+          }}
+        >
+          {md}
+        </MuiMarkdown>
+      </ScrollableBox>
+    </Box>
   )
 }
 
