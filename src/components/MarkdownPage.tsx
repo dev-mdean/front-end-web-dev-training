@@ -51,7 +51,10 @@ const MdPage = () => {
     <Box display='flex' flexDirection='column' width={1}>
       <PageHeader
         title={selectedPage?.title}
-        sx={{ backgroundColor: 'primary.dark', p: 2 }}
+        sx={{
+          backgroundColor: selectedPage?.accentColor ?? 'primary.dark',
+          p: 2,
+        }}
       />
       <ScrollableBox
         sx={{

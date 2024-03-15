@@ -5,6 +5,7 @@ import resources from './training/resources.md'
 import soloTrainingProject from './training/solo-training-project.md'
 
 export interface Page {
+  accentColor?: string
   content?: any
   path: string
   subPages?: Page[]
@@ -20,6 +21,7 @@ export const pageDictionary: { [key in RouteString]?: Page } = {
     path: generatePathTo.page(routeStrings.training),
     subPages: [
       {
+        accentColor: 'goldenrod',
         content: day1Training,
         path: generatePathTo.page(
           routeStrings.training,
@@ -28,6 +30,7 @@ export const pageDictionary: { [key in RouteString]?: Page } = {
         title: 'Day 1 Training',
       },
       {
+        accentColor: 'slateblue',
         content: soloTrainingProject,
         path: generatePathTo.page(
           routeStrings.training,
@@ -36,6 +39,7 @@ export const pageDictionary: { [key in RouteString]?: Page } = {
         title: 'Solo Training Project',
       },
       {
+        accentColor: 'seagreen',
         content: resources,
         path: generatePathTo.page(
           routeStrings.training,
