@@ -8,7 +8,7 @@ import CircleIcon from '@mui/icons-material/Circle'
 import { useCallback, useMemo } from 'react'
 import { useAppSelector } from '../../redux/hooks'
 import {
-  selectIsSelectedPage,
+  selectIsSelected,
   selectIsSubPageSelected,
 } from '../../redux/pagesSlice'
 import { useNavigate } from 'react-router-dom'
@@ -25,7 +25,7 @@ type PageListItemProps = {
 
 const PageListItem = ({ level = 1, onClick, page }: PageListItemProps) => {
   const navigate = useNavigate()
-  const isSelected = useAppSelector(selectIsSelectedPage(page))
+  const isSelected = useAppSelector(selectIsSelected(page))
   const isSubPageSelected = useAppSelector(selectIsSubPageSelected(page))
 
   const handleClick = useCallback(

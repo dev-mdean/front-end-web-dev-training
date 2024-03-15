@@ -3,29 +3,42 @@ import { RootState } from './store'
 import { Page } from '../pages'
 
 interface PagesState {
-  selectedPage?: Page
+  selectedFolder?: Page
+  selectedFile?: Page
 }
 
 const initialState: PagesState = {
-  selectedPage: undefined,
+  selectedFolder: undefined,
+  selectedFile: undefined,
 }
 
 export const pagesSlice = createSlice({
   name: 'pages',
   initialState,
   reducers: {
-    setSelectedPage: (state, action: PayloadAction<Page | undefined>) => {
-      state.selectedPage = action.payload
+    setSelected: (
+      state,
+      action: PayloadAction<{ file?: Page; folder?: Page }>
+    ) => {
+      const { file, folder } = action.payload
+      state.selectedFile = file
+      state.selectedFolder = folder
     },
   },
 })
 
-export const { setSelectedPage } = pagesSlice.actions
+export const { setSelected } = pagesSlice.actions
 
-export const selectIsSelectedPage = (page: Page) => (state: RootState) =>
-  state.pages.selectedPage === page || selectIsSubPageSelected(page)(state)
+export const selectIsSelected = (file: Page) => (state: RootState) =>
+  selectIsSelectedFolder(file)(state) || selectIsSelectedFile(file)(state)
+
+export const selectIsSelectedFolder = (folder: Page) => (state: RootState) =>
+  state.pages.selectedFolder === folder
+
+export const selectIsSelectedFile = (file: Page) => (state: RootState) =>
+  state.pages.selectedFile === file || selectIsSubPageSelected(file)(state)
 
 export const selectIsSubPageSelected = (page: Page) => (state: RootState) =>
-  !!page.subPages?.some((subpage) => state.pages.selectedPage === subpage)
+  !!page.subPages?.some((subpage) => state.pages.selectedFile === subpage)
 
 export const pagesReducer = pagesSlice.reducer

@@ -20,11 +20,12 @@ import { pageDictionary } from '../../pages'
 const Header = () => {
   const dispatch = useAppDispatch()
   const showMobileLayout = useAppSelector((s) => s.screen.showMobileLayout)
-  const selectedPage = useAppSelector((s) => s.pages.selectedPage)
+  const selectedPage = useAppSelector((s) => s.pages.selectedFile)
   const selectedPageIsHome = useMemo(
     () => selectedPage === pageDictionary.home,
     [selectedPage]
   )
+  const selectedFolder = useAppSelector((s) => s.pages.selectedFolder)
 
   const handleMenuButtonClicked = useCallback(
     (event: React.SyntheticEvent) => {
@@ -57,6 +58,16 @@ const Header = () => {
         )}
         <Breadcrumbs>
           <AppTitleButton />
+          {selectedFolder && (
+            <Link
+              color='primary'
+              component={RouterLink}
+              to={selectedFolder.path}
+              underline='hover'
+            >
+              {selectedFolder.title}
+            </Link>
+          )}
           {selectedPage && !selectedPageIsHome && (
             <Link
               color='primary'

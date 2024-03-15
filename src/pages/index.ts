@@ -50,30 +50,36 @@ export const pageDictionary: { [key in RouteString]?: Page } = {
 
 export const pages = Object.values(pageDictionary)
 
+export interface PageResult {
+  file?: Page
+  folder?: Page
+}
+
 export const findAppPageByName = (folderName?: string, fileName?: string) =>
   findPageByName(pages, folderName, fileName)
 export const findPageByName = (
   pages: Page[],
   folderName?: string,
   fileName?: string
-) => {
-  let folderPage: Page | undefined
+): PageResult => {
+  let folder: Page | undefined
 
   if (folderName) {
-    folderPage = pages.find(
-      (page) => page.path === generatePathTo.page(folderName)
-    )
+    folder = pages.find((page) => page.path === generatePathTo.page(folderName))
   }
 
-  if (!fileName) return folderPage
+  if (!fileName) return { file: folder }
 
-  let filePage: Page | undefined
+  let file: Page | undefined
 
   if (folderName && fileName) {
-    filePage = folderPage?.subPages?.find(
+    file = folder?.subPages?.find(
       (subPage) => subPage.path === generatePathTo.page(folderName, fileName)
     )
   }
 
-  return filePage ?? folderPage
+  return {
+    file,
+    folder,
+  }
 }

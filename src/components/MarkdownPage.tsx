@@ -30,7 +30,7 @@ const MarkdownLink = ({
 
 const MdPage = () => {
   const [md, setMd] = useState('')
-  const selectedPage = useAppSelector((s) => s.pages.selectedPage)
+  const selectedPage = useAppSelector((s) => s.pages.selectedFile)
 
   useEffect(() => {
     if (!selectedPage) return
