@@ -16,7 +16,7 @@ const useAppUrlParams = () => {
   useEffect(() => {
     let page = findAppPageByName(folderName, fileName)
 
-    const invalidFolderName = !page
+    const invalidFolderName = !page && folderName
     const invalidFileName = fileName && page?.subPages
 
     if (invalidFolderName || invalidFileName) {
