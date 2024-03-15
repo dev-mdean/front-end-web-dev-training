@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { pageDictionary } from '../pages'
+import { routesDictionary } from './routes'
 
-const HomePageRedirector = () => {
+const InvalidPageRedirector = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    navigate(pageDictionary.home!.path)
+    navigate(routesDictionary.invalid!.path)
   }, [navigate])
 
   return null
 }
 
-export default HomePageRedirector
+export default InvalidPageRedirector

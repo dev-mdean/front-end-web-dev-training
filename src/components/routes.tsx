@@ -1,6 +1,7 @@
 import { generatePath } from 'react-router-dom'
 import MarkdownPage from './MarkdownPage'
 import HomePage from './HomePage'
+import InvalidRoutePage from './InvalidRoutePage'
 
 export const dynamicSegments = {
   pageFileName: 'fileName',
@@ -19,9 +20,12 @@ export const routeStrings = {
   training: 'training',
   folder: 'folder',
   file: 'file',
+  invalid: 'invalid',
 }
 
-export const routesDictionary = {
+export type RouteString = keyof typeof routeStrings
+
+export const routesDictionary: { [key in RouteString]?: Route } = {
   pages: {
     component: <MarkdownPage />,
     path: routeStrings.pages,
@@ -29,12 +33,16 @@ export const routesDictionary = {
       [routeStrings.folder]: {
         component: <HomePage />,
         path: `:${dynamicSegments.pageFolderName}`,
-      } as Route,
+      },
       [routeStrings.file]: {
         path: `:${dynamicSegments.pageFolderName}/page/:${dynamicSegments.pageFileName}`,
-      } as Route,
+      },
     },
-  } as Route,
+  },
+  invalid: {
+    component: <InvalidRoutePage />,
+    path: routeStrings.invalid,
+  },
 }
 
 export const routes = Object.values(routesDictionary)
@@ -43,8 +51,8 @@ export const generatePathTo = {
   page: (folderName: string, fileName?: string) => {
     if (!fileName) {
       return generatePath(
-        `${routesDictionary.pages.path}/${
-          routesDictionary.pages.subRoutes![routeStrings.folder].path
+        `/${routesDictionary.pages!.path}/${
+          routesDictionary.pages!.subRoutes![routeStrings.folder].path
         }`,
         {
           [dynamicSegments.pageFolderName]: folderName,
@@ -53,8 +61,8 @@ export const generatePathTo = {
     }
 
     return generatePath(
-      `${routesDictionary.pages.path}/${
-        routesDictionary.pages.subRoutes![routeStrings.file].path
+      `/${routesDictionary.pages!.path}/${
+        routesDictionary.pages!.subRoutes![routeStrings.file].path
       }`,
       {
         [dynamicSegments.pageFileName]: fileName,

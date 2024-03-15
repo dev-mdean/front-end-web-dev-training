@@ -4,10 +4,10 @@ import { Provider } from 'react-redux'
 import { AppStore } from '../redux/store'
 import Layout from './layout/Layout'
 import { HashRouter, Route, Routes } from 'react-router-dom'
-import InvalidRoutePage from './InvalidRoutePage'
 import PageList from './PageList/PageList'
 import HomePageRedirector from './HomePageRedirector'
 import { routes } from './routes'
+import InvalidPageRedirector from './InvalidPageRedirector'
 
 const darkTheme = createTheme({
   palette: {
@@ -40,14 +40,7 @@ function App() {
                 )
               })}
             </Route>
-            <Route
-              element={
-                <Layout>
-                  <InvalidRoutePage />
-                </Layout>
-              }
-              path='*'
-            />
+            <Route element={<InvalidPageRedirector />} path='*' />
           </Routes>
         </HashRouter>
       </ThemeProvider>

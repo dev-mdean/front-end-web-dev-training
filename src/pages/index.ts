@@ -1,4 +1,4 @@
-import { generatePathTo, routeStrings } from '../components/routes'
+import { RouteString, generatePathTo, routeStrings } from '../components/routes'
 
 export interface Page {
   path: string
@@ -6,9 +6,7 @@ export interface Page {
   title: string
 }
 
-export type PageString = keyof typeof routeStrings
-
-export const pageDictionary: { [key in PageString]?: Page } = {
+export const pageDictionary: { [key in RouteString]?: Page } = {
   home: {
     path: generatePathTo.page(routeStrings.home),
     title: 'Home',

@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom'
-import { dynamicSegments } from '../components/routes'
+import { useNavigate, useParams } from 'react-router-dom'
+import { dynamicSegments, routesDictionary } from '../components/routes'
 import { useEffect } from 'react'
 import { useAppDispatch } from '../redux/hooks'
 import { setSelectedPage } from '../redux/pagesSlice'
@@ -11,17 +11,17 @@ const useAppUrlParams = () => {
     [dynamicSegments.pageFolderName]: folderName,
   } = useParams()
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    console.log(
-      'finding page %s/%s',
-      folderName,
-      fileName,
-      findAppPageByName(folderName, fileName)
-    )
+    let page = findAppPageByName(folderName, fileName)
 
-    dispatch(setSelectedPage(findAppPageByName(folderName, fileName)))
-  }, [dispatch, fileName, folderName])
+    if (!page && (folderName || fileName)) {
+      navigate(routesDictionary.invalid!.path)
+    }
+
+    dispatch(setSelectedPage(page))
+  }, [dispatch, fileName, folderName, navigate])
 }
 
 export default useAppUrlParams
