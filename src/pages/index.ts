@@ -36,7 +36,6 @@ export const findPageByName = (
   folderName?: string,
   fileName?: string
 ) => {
-  console.log('stuff %s --- %s', folderName, fileName)
   let folderPage: Page | undefined
 
   if (folderName) {
@@ -44,8 +43,6 @@ export const findPageByName = (
       (page) => page.path === generatePathTo.page(folderName)
     )
   }
-
-  console.log('folderPage', folderPage)
 
   if (!fileName) return folderPage
 
@@ -57,6 +54,5 @@ export const findPageByName = (
     )
   }
 
-  console.log('filePage', filePage)
   return filePage ?? folderPage
 }
