@@ -12,14 +12,20 @@ import {
 } from './constants'
 import Box from '@mui/material/Box'
 import AppTitleButton from '../AppTitleButton'
+import { Page } from '../../pages'
 
 const NavigationMenu = () => {
   const dispatch = useAppDispatch()
   const showNavigationMenu = useAppSelector((s) => s.screen.showNavigationMenu)
 
-  const closeNavigationMenu = useCallback(() => {
-    dispatch(setShowNavigationMenu(false))
-  }, [dispatch])
+  const closeNavigationMenu = useCallback(
+    (value: Page) => {
+      if (value.subPages) return
+
+      dispatch(setShowNavigationMenu(false))
+    },
+    [dispatch]
+  )
 
   return (
     <Drawer

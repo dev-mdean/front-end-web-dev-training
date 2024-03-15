@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { MuiMarkdown } from 'mui-markdown'
-import mdPath from '../pages/training/training-notes.md'
 import { Link as RouterLink } from 'react-router-dom'
 import { Link } from '@mui/material'
+import { useAppSelector } from '../redux/hooks'
 
 const MarkdownLink = ({
   href,
@@ -30,16 +30,19 @@ const MarkdownLink = ({
 
 const MdPage = () => {
   const [md, setMd] = useState('')
+  const selectedPage = useAppSelector((s) => s.pages.selectedPage)
 
   useEffect(() => {
-    fetch(mdPath).then((response) => {
+    if (!selectedPage) return
+
+    fetch(selectedPage.content).then((response) => {
       if (!response.ok) return
 
       response.text().then((text) => {
         setMd(text)
       })
     })
-  }, [])
+  }, [selectedPage])
 
   return (
     <MuiMarkdown

@@ -1,0 +1,10 @@
+- Add features onto Todo list:
+    - Implement redux
+    - Categories
+    - Dates (Day js)
+    - Notifications
+    - Authentication (MSAL)
+- Pokemon app (pokeAPI): select two pokemon and display a comparison between the two
+- Weather App?
+- Recreate app profile form with react hook form? Add a review page and a submit page?
+- For any of the above: Authentication, landing page? (React router)
