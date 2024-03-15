@@ -1,7 +1,7 @@
 import { generatePath } from 'react-router-dom'
-import MarkdownPage from './MarkdownPage'
-import HomePage from './HomePage'
-import InvalidRoutePage from './InvalidRoutePage'
+import MarkdownPage from './Pages/MarkdownPage'
+import HomePage from './Pages/HomePage'
+import InvalidRoutePage from './Pages/InvalidRoutePage'
 
 export const dynamicSegments = {
   pageFileName: 'fileName',

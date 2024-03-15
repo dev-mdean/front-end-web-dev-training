@@ -5,9 +5,9 @@ import { AppStore } from '../redux/store'
 import Layout from './layout/Layout'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import PageList from './PageList/PageList'
-import HomePageRedirector from './HomePageRedirector'
-import { routes } from './routes'
-import InvalidPageRedirector from './InvalidPageRedirector'
+import { routes, routesDictionary } from './routes'
+import Redirector from './Redirector'
+import { pageDictionary } from '../pages'
 
 const darkTheme = createTheme({
   palette: {
@@ -23,7 +23,10 @@ function App() {
         <HashRouter basename=''>
           <Routes>
             <Route element={<Layout leftPanelChildren={<PageList />} />}>
-              <Route element={<HomePageRedirector />} index />
+              <Route
+                element={<Redirector path={pageDictionary.home!.path} />}
+                index
+              />
               {routes.map((route) => {
                 return (
                   <Route key={route.path} path={route.path}>
@@ -40,7 +43,10 @@ function App() {
                 )
               })}
             </Route>
-            <Route element={<InvalidPageRedirector />} path='*' />
+            <Route
+              element={<Redirector path={routesDictionary.invalid!.path} />}
+              path='*'
+            />
           </Routes>
         </HashRouter>
       </ThemeProvider>

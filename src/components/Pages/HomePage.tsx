@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-import ScrollableBox from './ScrollableBox'
+import ScrollableBox from '../ScrollableBox'
 import PageHeader from './PageHeader'
 
 const IMAGE_SIZE = '72px'

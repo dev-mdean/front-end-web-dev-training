@@ -2,8 +2,8 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { Link as RouterLink } from 'react-router-dom'
-import { generatePathTo, routeStrings } from './routes'
-import ScrollableBox from './ScrollableBox'
+import { generatePathTo, routeStrings } from '../routes'
+import ScrollableBox from '../ScrollableBox'
 import PageHeader from './PageHeader'
 
 const InvalidRoutePage = () => {
