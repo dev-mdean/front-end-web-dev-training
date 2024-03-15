@@ -18,7 +18,6 @@ const InvalidRoutePage = () => {
       <Typography>
         The address might be misspelled or the page may have moved.
       </Typography>
-      <Typography>Error code: 404</Typography>
       <Button
         component={RouterLink}
         to={generatePathTo.page(routeStrings.home)}
