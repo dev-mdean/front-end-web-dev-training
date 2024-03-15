@@ -16,8 +16,11 @@ const useAppUrlParams = () => {
   useEffect(() => {
     let page = findAppPageByName(folderName, fileName)
 
-    if (!page && (folderName || fileName)) {
-      navigate(routesDictionary.invalid!.path)
+    const invalidFolderName = !page
+    const invalidFileName = fileName && page?.subPages
+
+    if (invalidFolderName || invalidFileName) {
+      navigate(routesDictionary.invalid!.path, { replace: true })
     }
 
     dispatch(setSelectedPage(page))
