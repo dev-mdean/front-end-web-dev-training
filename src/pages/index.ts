@@ -1,4 +1,5 @@
 import { RouteString, generatePathTo, routeStrings } from '../components/routes'
+import { convertPathToFileName } from '../helpers/pathHelpers'
 import day1Training from './training/day-1-training.md'
 import resources from './training/resources.md'
 import soloTrainingProject from './training/solo-training-project.md'
@@ -20,20 +21,26 @@ export const pageDictionary: { [key in RouteString]?: Page } = {
     subPages: [
       {
         content: day1Training,
-        path: generatePathTo.page(routeStrings.training, 'day-1-training.md'),
+        path: generatePathTo.page(
+          routeStrings.training,
+          convertPathToFileName(day1Training)
+        ),
         title: 'Day 1 Training',
       },
       {
         content: soloTrainingProject,
         path: generatePathTo.page(
           routeStrings.training,
-          'solo-training-project.md'
+          convertPathToFileName(soloTrainingProject)
         ),
         title: 'Solo Training Project',
       },
       {
         content: resources,
-        path: generatePathTo.page(routeStrings.training, 'resources.md'),
+        path: generatePathTo.page(
+          routeStrings.training,
+          convertPathToFileName(resources)
+        ),
         title: 'Resources',
       },
     ],
