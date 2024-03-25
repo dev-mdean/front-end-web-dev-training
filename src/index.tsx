@@ -4,7 +4,6 @@ import App from './components/App'
 import './index.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-document.body.classList.add('no-scroll')
 
 const preventDefault = (e: any) => e.preventDefault()
 // When rendering our container
