@@ -22,6 +22,8 @@ const ScrollableBox = ({ children, sx }: ScrollableBoxProps) => {
     <Box
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
+      onTouchStart={handlePointerEnter}
+      onTouchEnd={handlePointerLeave}
       sx={{
         ...sx,
         overflowY: 'scroll',
