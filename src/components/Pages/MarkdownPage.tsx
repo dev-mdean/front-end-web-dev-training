@@ -72,6 +72,7 @@ const MdPage = () => {
         >
           {md}
         </MuiMarkdown>
+        <Box sx={{ height: '20vh' }} />
       </ScrollableBox>
     </Box>
   )

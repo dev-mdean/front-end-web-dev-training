@@ -75,7 +75,7 @@ const HomePage = () => {
             />
           </Box>
         </Box>
-        <Box sx={{ height: '20vh' }}></Box>
+        <Box sx={{ height: '20vh' }} />
       </ScrollableBox>
     </Box>
   )
