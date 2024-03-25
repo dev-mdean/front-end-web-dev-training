@@ -16,6 +16,13 @@ const darkTheme = createTheme({
 })
 
 function App() {
+  const preventDefault = (e: any) => e.preventDefault()
+  // When rendering our container
+  window.addEventListener('touchmove', preventDefault, {
+    passive: false,
+  })
+  // Remember to clean up when removing it
+  window.removeEventListener('touchmove', preventDefault)
   return (
     <Provider store={AppStore}>
       <ThemeProvider theme={darkTheme}>

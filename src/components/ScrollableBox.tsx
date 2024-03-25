@@ -26,7 +26,7 @@ const ScrollableBox = ({ children, sx }: ScrollableBoxProps) => {
         ...sx,
         display: 'flex',
         flexDirection: 'column',
-        height: '89vh',
+        height: '85vh',
         overflowY: 'scroll',
         '::-webkit-scrollbar': {
           width: '9px',
