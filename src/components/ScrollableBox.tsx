@@ -24,8 +24,6 @@ const ScrollableBox = ({ children, sx }: ScrollableBoxProps) => {
       onPointerLeave={handlePointerLeave}
       sx={{
         ...sx,
-        display: 'flex',
-        flexDirection: 'column',
         height: '85vh',
         overflowY: 'scroll',
         '::-webkit-scrollbar': {
