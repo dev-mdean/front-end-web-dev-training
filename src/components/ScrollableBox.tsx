@@ -22,10 +22,11 @@ const ScrollableBox = ({ children, sx }: ScrollableBoxProps) => {
     <Box
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
-      onTouchStart={handlePointerEnter}
-      onTouchEnd={handlePointerLeave}
       sx={{
         ...sx,
+        display: 'flex',
+        flexDirection: 'column',
+        height: '89vh',
         overflowY: 'scroll',
         '::-webkit-scrollbar': {
           width: '9px',
